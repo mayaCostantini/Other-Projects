@@ -2,9 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
-#----------------------
-# Binomial coefficient
 def nchoosek(n,p):
     if p == 0:
         return 1
@@ -17,10 +14,6 @@ def nchoosek(n,p):
     else:
         return nchoosek(n-1,p)+nchoosek(n-1,p-1)
 
-#---------------------
-# Bernstein Polynomials
-# N is the degree
-# t = np.linspace(0,1,500)
 def Bernstein(N,t):
     BNt = []
     for i in range(N+1):
@@ -28,14 +21,6 @@ def Bernstein(N,t):
         BNt.append(Pol)
     BNt = np.array(BNt)
     return BNt
-
-#----------------------
-# plot of the Bernstein polynomials
-# N=5
-# x = np.linspace(0,1,500)
-# Bern = Bernstein(N,x)
-# for k in range(N+1):
-#     plt.plot(x,Bern[k])
 
 
 def PlotBezierCurve(Polygon):
@@ -68,13 +53,15 @@ def AcquisitionPolygone(minmax,color1,color2) :
             y.append(yy)
             if len(x) > 1 :
                 plt.plot([x[-2],x[-1]],[y[-2],y[-1]],color2)
-    #Polygon creation
+    
     Polygon = np.zeros((2,len(x)))
     Polygon[0,:] = x
     Polygon[1,:] = y
     return Polygon
 
-# main part of the program to call AcquisitionPolygone.
+
+
+
 fig2 = plt.figure()
 ax = fig2.add_subplot(111)
 minmax = 10
